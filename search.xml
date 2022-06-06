@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>解决搭建博客问题</title>
+      <link href="/2022/06/06/%E8%A7%A3%E5%86%B3hexo+GitHub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98/"/>
+      <url>/2022/06/06/%E8%A7%A3%E5%86%B3hexo+GitHub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<div class="note red icon flat"><i class="note-icon fa fa-heartbeat"></i><p>我遇见你后的心跳</p></div><h1>一.报错信息</h1><p>相信大家在搭建博客时会遇到各种报错信息，今天我来分享一个简单的报错信息解决方法。话不多说，上图：<br><img src="https://img-blog.csdnimg.cn/a5a4c84fb1fe4f2c8e60b96d92e3b50d.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hjeGRkZA==,size_16,color_FFFFFF,t_70" alt><br>分析报错信息，我们能够发现错误原因是下面两句：<br><img src="https://img-blog.csdnimg.cn/76a749acbc0a47198bd742a6bce825e7.png" alt></p><p>什么意思呢？<br>其实就是询问我们是否有权利进入存储库。可能有小伙伴要问了，存储库是我自己创的，还问我有没有权利，这不是在说废话吗？<br>哈哈，其实这个是因为我们的存储库过期了，需要重置。<br>下面讲解重置方法。</p><h1>二.解决方法</h1><ol><li>重置用户名和邮箱</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;yourname&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;your@email.com&quot;</span></span><br></pre></td></tr></table></figure><p>注：yourname是你要设置的名字，your@email是你要设置的邮箱。<br>例如我的：<br><img src="https://img-blog.csdnimg.cn/44879da4360c4482b7da8a307a6c8abf.png" alt><br>一般来说，运行这两行后并没有显示什么。</p><ol start="2"><li>删除.ssh文件夹下的known_hosts<br>一般.ssh文件夹在C盘的Use中，可以自己搜索寻找。<br>下面把我的寻找过程发出来：<br><img src="https://img-blog.csdnimg.cn/e05f960b9dd04e49992aac6223074e59.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hjeGRkZA==,size_16,color_FFFFFF,t_70" alt><br><img src="https://img-blog.csdnimg.cn/21996b88512a4c18b62a7fb96a66c252.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hjeGRkZA==,size_16,color_FFFFFF,t_70" alt><br><img src="https://img-blog.csdnimg.cn/309913748fb54362964243873a7b7087.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hjeGRkZA==,size_16,color_FFFFFF,t_70" alt><br><img src="https://img-blog.csdnimg.cn/f1b209c6af984aeb9deaacc5c845d1b9.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hjeGRkZA==,size_16,color_FFFFFF,t_70" alt></li></ol><p><img src="https://img-blog.csdnimg.cn/0e037713b17442ad805012205ac5f3a1.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hjeGRkZA==,size_16,color_FFFFFF,t_70" alt></p><ol start="3"><li>git输入命令</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;your@email.com&quot;</span></span><br></pre></td></tr></table></figure><p>（请填你设置的邮箱地址）<br>一路yes和回车，然后系统会自动在.ssh文件夹下生成两个文件，id_rsa和id_rsa.pub，用记事本打开id_rsa.pub，将里面的内容全部复制。<br><img src="https://img-blog.csdnimg.cn/e547ccba40bc4970a6ae0d8279a5a6b1.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hjeGRkZA==,size_16,color_FFFFFF,t_70" alt><br>运行结果差不多是这个样子</p><ol start="4"><li><p>打开https://github.com/<br>登陆你的账户，进入设置<br>进入ssh设置，在key中将刚刚复制的粘贴进去，点击添加SSH密匙，然后就成功创建了一个SSH键了。<br><img src="https://img-blog.csdnimg.cn/4b48f1f4b93d4181974ff4b5a92deeb7.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hjeGRkZA==,size_16,color_FFFFFF,t_70" alt></p></li><li><p>在git中输入命令：</p></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>注意这个不需要再填自己的GitHub了。直接输入即可。<br>运行结果如下：<br><img src="https://img-blog.csdnimg.cn/ebd0b487193d45d18153cb0129b2af49.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hjeGRkZA==,size_16,color_FFFFFF,t_70" alt></p><h1>三.成功解决</h1><p>至此，我们已经成功解决了问题，现在我们再运行，系统就不会再报错了。<br>例如我的运行结果：<br><img src="https://img-blog.csdnimg.cn/006673e4a5d145edb1fb38782fd3bebd.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hjeGRkZA==,size_16,color_FFFFFF,t_70" alt></p><p>制作文章实属不易，这不给我点个赞？<br><img src="https://img-blog.csdnimg.cn/7268a629b3b64faa85592753ebdb092e.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hjeGRkZA==,size_16,color_FFFFFF,t_70" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+          <category> 搭建博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>博客文章公式显示错误</title>
       <link href="/2022/06/06/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/"/>
       <url>/2022/06/06/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
