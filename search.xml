@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>博客文章公式显示错误</title>
+      <link href="/2022/06/06/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/"/>
+      <url>/2022/06/06/%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF/</url>
+      
+        <content type="html"><![CDATA[<h1>一.错误截图</h1><p><img src="https://img-blog.csdnimg.cn/2337f2486fec4d5a9b9f0942cda23310.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hjeGRkZA==,size_16,color_FFFFFF,t_70" alt><br>从图中我们可以看出，有些公式的显示是错误的。那么我们怎么解决这个问题呢？</p><h1>二.解决方法</h1><p>其实解决办法很简单，因为我们之前打公式都是采用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">行内公式：$ $</span><br><span class="line">段内公式：$$ $$</span><br></pre></td></tr></table></figure><p>例如：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>+</mo><mi>b</mi><mo>=</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">a+b=c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们采用的是<span class="variable">$a</span>+b=c$</span><br></pre></td></tr></table></figure><p>而我们现在要做的改动是</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">行内公式：`$$` </span><br><span class="line">段内公式：$$ $$</span><br><span class="line">即行内公式的编写要加上``</span><br><span class="line">段内公式无需做改变</span><br></pre></td></tr></table></figure><h1>三.使用技巧</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">如果您需要包含&lt;代码&gt;的标签：</span><br><span class="line">采用` <span class="variable">$some</span> code$ `</span><br><span class="line">如果您需要包含在文本中：</span><br><span class="line">采用\$\$</span><br></pre></td></tr></table></figure><h1>四.成功截图</h1><p><img src="https://img-blog.csdnimg.cn/ebc1db1fa88a4df6bddc855d2ade4620.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hjeGRkZA==,size_16,color_FFFFFF,t_70" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 搭建博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 搭建博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2022/06/05/hello-world/"/>
       <url>/2022/06/05/hello-world/</url>
